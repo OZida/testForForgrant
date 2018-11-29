@@ -1,4 +1,281 @@
-
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/scss/_variables.scss";
 
+
+@font-face {
+	font-family: Roboto-Light;
+	src:url(../../static/fonts/Roboto-Light.ttf);
+}
+@font-face {
+	font-family: Roboto-Medium;
+	src:url(../../static/fonts/Roboto-Medium.ttf);
+}
+@font-face {
+	font-family: Roboto-Bold;
+	src:url(../../static/fonts/Roboto-BoldCondensed.ttf);
+}
+html,
+body,
+div,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+body {
+	background: url(../../static/img/bg.jpg) center top no-repeat;
+	background-size: cover;
+}
+h2, h4, h5 {
+	color: #fff;
+}
+.currency-block:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+.wrapper {
+	max-width: 984px;
+	margin: 0 auto;
+	padding: 0 15px;
+	.top-block {
+		position: relative;
+		h2 {
+			border: 1px solid #2b3b45;
+			margin: 50px 0 40px;
+			padding: 10px 10px 70px;
+			border-radius: 10px;
+			background: rgba(31, 40, 48, 0.2);
+		}
+		.jq-selectbox  {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			width: 270px;
+			#selectCurrency {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			.jq-selectbox__select {
+				background: #1e252b;
+				text-shadow: none;
+				color: #9fa0a2;
+				box-shadow: none;
+				border: 1px solid #92e8fe;
+				font-family: Roboto-Light;
+				.jq-selectbox__select-text {
+					font-size: 16px;
+				}
+				.jq-selectbox__trigger {
+					border: none;
+					.jq-selectbox__trigger-arrow {
+						border-top: 5px solid #92e8fe;
+					}
+				}
+			}
+			.jq-selectbox__dropdown {
+				box-shadow: none;
+				border: 1px solid #92e8fe;
+				ul {
+					background: #1e252b;
+					li {
+						font-size: 16px;
+						font-family: Roboto-Light;
+						color: #9fa0a2;
+						padding: 10px;
+					}
+					.selected {
+						background-color: transparent;
+					}
+				}
+			}
+		}	
+	}
+	.currency-block {
+		.currencyItem {
+			margin: 20px auto;
+			background-size: cover!important;
+			background-position: center!important;
+			max-width: 310px;
+			border-radius: 10px;
+			padding: 15px;
+			h4 {
+				font-family: Roboto-Bold;
+				letter-spacing: 1px;
+				text-align: center;
+			}
+			.currencyDetails {
+				margin-top: 145px;
+				h5, p {
+					letter-spacing: 1px;
+					font-family: Roboto-Bold;
+					span {
+						letter-spacing: 1px;
+						font-family: Roboto-Bold;
+						float: right;
+					}
+				}
+				h5 {
+					font-family: Roboto-Bold;
+					letter-spacing: 1px;
+				}
+				label {
+					font-size: 14px;
+					width: 100%;
+					.percentChange {
+						position: absolute;
+						z-index: -1;
+						opacity: 0;
+						margin: 10px 0 0 20px;
+					}
+					.checkbox__text {
+						color: #fff;
+						font-family: Roboto-Bold;
+						letter-spacing: 1px;
+						position: relative;
+						padding: 0 83px 0 0;
+						cursor: pointer;
+						&:before {
+							content: '';
+							position: absolute;
+							top: 5px;
+							right: 0;
+							width: 42px;
+							height: 15px;
+							border-radius: 13px;
+							background: #CDD1DA;
+							box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+							transition: .2s;
+						}
+						&:after {
+							content: url(../../static/img/check.png);
+							position: absolute;
+							top: -2px;
+							right: 0;
+							width: 23px;
+							height: 23px;
+							border-radius: 10px;
+							transition: .2s;
+						}
+						
+					}
+					.percentChange:checked + .checkbox__text:before {
+						background: #3aa5da;
+					}
+					.percentChange:checked + .checkbox__text:after {
+						right: 26px;
+					}
+				}
+				.changes-block {
+					p {
+						font-size: 14px;
+						margin: 3px 0;
+						span {
+							font-size: 16px;
+							color: #70c446;
+						}
+					}
+				}
+			}
+		}
+		.ethereum {
+			background: url(../../static/img/ethereum-bg.png)no-repeat;
+			p {
+				color: #68786c;
+			}
+		}
+		.litecoin {
+			background: url(../../static/img/litecoin-bg.png)no-repeat;
+			p {
+				color: #6e6e6e;
+			}
+		}
+		.bitcoin {
+			background: url(../../static/img/bitcoin-bg.png)no-repeat;
+			p {
+				color: #6c5d59;
+			}
+		}
+	}
+}
+@media (min-width: 576px) {
+	.wrapper {
+		.top-block {
+			h2 {
+				padding: 10px 10px 20px 2%;
+			}
+			.jq-selectbox {
+				bottom: unset;
+				left: unset;
+				width: unset;
+				right: 2%;
+				top: 18px;
+				min-width: 19%;
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.wrapper {
+		.top-block {
+			h2 {
+				padding: 20px 10px 30px 2%;
+			}
+			.jq-selectbox {
+				bottom: unset;
+				left: unset;
+				width: 296px;
+				right: 2%;
+				top: 18px;
+				min-width: 19%;
+				.jq-selectbox__select {
+					padding: 10px;
+					height: 50px;
+					.jq-selectbox__trigger {
+						.jq-selectbox__trigger-arrow {
+							top: 23px;
+						}
+					}
+				}
+			}
+		}
+		.currency-block {
+			max-width: 954px;
+			min-width: 730px;
+			margin: 0 auto 140px;
+			.currencyItem {
+				margin: 20px 1% 20px 0;
+				float: left;
+				min-width: 32.66%;
+			}
+			.bitcoin {
+				margin: 20px 0;
+			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.wrapper {
+		padding: 0;
+		.top-block {
+			h2 {
+				padding: 20px 10px 30px 135px;
+			}
+		}
+		.currency-block {
+			max-width: 984px;
+			.currencyItem {
+				margin: 20px 15px;
+				width: 308px;
+				min-width: unset;
+			}
+			.ethereum {
+				margin: 20px 15px 20px 0;
+			}
+			.bitcoin {
+				margin: 20px 0 20px 15px;
+			}
+		}
+	}
+}

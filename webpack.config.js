@@ -23,6 +23,13 @@ module.exports = {
 				}
 			},
 			{
+			test: /\.css$/,
+				use: [
+					{loader: 'style-loader'},
+					{loader: 'css-loader'}
+				]
+			},
+			{
 				test: /\.scss$/,
 				use:  ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
 			},
@@ -44,6 +51,32 @@ module.exports = {
         	},
 		],
 		
+	},
+	devServer: {
+		contentBase: path.join(__dirname,"dist"),
+		compress: true,
+		disableHostCheck: true,
+		port: 8080,
+		open: true,
+		// hot: true,
+		// inline : true,
+		stats: {
+			children: false,
+	        chunks: false,
+	        colors: true,
+	        depth: false,
+	        entrypoints: false,
+	        errors: true,
+	        errorDetails: true,
+	        hash: true,
+	        modules: false,
+	        maxModules: 15,
+	        modulesSort: "field",
+	        performance: true,
+	        timings: true,
+	        version: true,
+	        warnings: true
+		}
 	},
 	plugins: [
 		new webpack.ProvidePlugin({
